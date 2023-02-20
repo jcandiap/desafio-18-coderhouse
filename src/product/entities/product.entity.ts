@@ -5,7 +5,9 @@ import { Document } from "mongoose";
 // export type ProductDocument = HydratedDocument<Product>;
 export type ProductDocument = Product & Document;
 
-@Schema()
+@Schema({
+    versionKey: false
+})
 export class Product {
 
     @Prop({ required: true })
@@ -17,7 +19,7 @@ export class Product {
     @Prop({ required: true })
     thumbnail: string;
 
-    @Prop({ required: true })
+    @Prop({ required: false, default: new Date().getTime() })
     timestamp: number;
 
 }
