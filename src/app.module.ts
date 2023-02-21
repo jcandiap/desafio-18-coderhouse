@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ProductModule } from './product/product.module';
+import { UserModule } from './user/user.module';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -12,7 +13,8 @@ dotenv.config();
     MongooseModule.forRoot(process.env.MONGO_URI, {
       dbName: 'desafio-08'
     }),
-    ProductModule
+    ProductModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService],
